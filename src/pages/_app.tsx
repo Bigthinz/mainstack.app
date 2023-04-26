@@ -1,16 +1,23 @@
-import { AppProps } from 'next/app';
+import { cache } from '@emotion/css';
+import { CacheProvider } from '@emotion/react';
+import { AnimatePresence } from 'framer-motion';
+import type { AppProps } from 'next/app';
 
+// import { Provider } from 'react-redux';
 import '@/styles/globals.css';
-// !STARTERCONF This is for demo purposes, remove @/styles/colors.css import immediately
-import '@/styles/colors.css';
 
-/**
- * !STARTERCONF info
- * ? `Layout` component is called in every page using `np` snippets. If you have consistent layout across all page, you can add it here too
- */
+// import { store } from '../store/store';
+import GlobalStyles from '../styles/GlobalStyles';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
-}
+const App = ({ Component, pageProps }: AppProps) => (
+  <AnimatePresence exitBeforeEnter>
+    <CacheProvider value={cache}>
+      <GlobalStyles />
+      {/* <Provider store={store}> */}
+      <Component {...pageProps} />
+      {/* </Provider> */}
+    </CacheProvider>
+  </AnimatePresence>
+);
 
-export default MyApp;
+export default App;

@@ -1,7 +1,15 @@
 /** @type {import('next').NextConfig} */
+const withTwin = require('./withTwin.js');
+
 const nextConfig = {
   eslint: {
     dirs: ['src'],
+  },
+  images: {
+    domains: ['tailwindui.com', 'images.unsplash.com', 'images.unsplash.com'],
+  },
+  env: {
+    BASE_URL: process.env.BASE_URL,
   },
 
   reactStrictMode: true,
@@ -34,4 +42,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withTwin(nextConfig);
