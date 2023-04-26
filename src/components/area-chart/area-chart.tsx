@@ -33,52 +33,54 @@ import { AreaChart, Card, Title } from '@tremor/react';
 //   },
 // ];
 
-const graphData = {
-  views: {
-    '2022-07-31': 1,
-    '2022-08-01': 3,
-    '2022-08-02': 3,
-    '2022-08-03': 7,
-    '2022-08-04': 8,
-    '2022-08-05': 5,
-    '2022-08-06': 20,
-    '2022-08-07': 50,
-    '2022-08-08': 100,
-    '2022-08-09': 2,
-  },
-};
-
-const chartdata = Object.keys(graphData.views).map((dateString) => {
-  const date = new Date(dateString);
-  const day = date.getDate().toString().padStart(2, '0');
-  const month = date.toLocaleString('default', { month: 'short' });
-  const formattedDate = `${day} ${month}`;
-  return {
-    date: formattedDate,
-    SemiAnalysis: graphData.views[dateString],
+const AreaCharts = ({ graphDatas }) => {
+  console.log(graphDatas);
+  const graphData = {
+    views: {
+      '2022-07-31': 1,
+      '2022-08-01': 3,
+      '2022-08-02': 3,
+      '2022-08-03': 7,
+      '2022-08-04': 8,
+      '2022-08-05': 5,
+      '2022-08-06': 20,
+      '2022-08-07': 50,
+      '2022-08-08': 100,
+      '2022-08-09': 2,
+    },
   };
-});
 
-const dataFormatter = (number: number) => {
-  return '$ ' + Intl.NumberFormat('us').format(number).toString();
+  const chartdata = Object.keys(graphData.views).map((dateString) => {
+    const date = new Date(dateString);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = date.toLocaleString('default', { month: 'short' });
+    const formattedDate = `${day} ${month}`;
+    return {
+      date: formattedDate,
+      SemiAnalysis: graphData.views[dateString],
+    };
+  });
+
+  const dataFormatter = (number: number) => {
+    return '$ ' + Intl.NumberFormat('us').format(number).toString();
+  };
+  return (
+    <Card>
+      <div className='space-y-2'>
+        <Title className='font-semibold'>Page views</Title>
+        <p>All time</p>
+        <h2 className='h1 mt-16'>500</h2>
+      </div>
+      <AreaChart
+        className='mt-4 h-72'
+        data={chartdata}
+        index='date'
+        categories={['SemiAnalysis']}
+        colors={['orange']}
+        valueFormatter={dataFormatter}
+      />
+    </Card>
+  );
 };
-
-const AreaCharts = () => (
-  <Card>
-    <div className='space-y-2'>
-      <Title className='font-semibold'>Page views</Title>
-      <p>All time</p>
-      <h2 className='h1 mt-16'>500</h2>
-    </div>
-    <AreaChart
-      className='mt-4 h-72'
-      data={chartdata}
-      index='date'
-      categories={['SemiAnalysis']}
-      colors={['orange']}
-      valueFormatter={dataFormatter}
-    />
-  </Card>
-);
 
 export default AreaCharts;

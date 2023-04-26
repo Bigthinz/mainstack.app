@@ -1,7 +1,13 @@
 import { Card, DonutChart, Title } from '@tremor/react';
 import countryLookup from 'country-code-lookup';
 import { useEffect, useState } from 'react';
-import { FlagIcon } from 'react-flag-kit';
+import {
+  FaFacebook,
+  FaGoogle,
+  FaInstagram,
+  FaLinkedin,
+  FaTwitter,
+} from 'react-icons/fa';
 
 const cities = [
   {
@@ -33,7 +39,7 @@ const cities = [
 const valueFormatter = (number: number) =>
   `$ ${Intl.NumberFormat('us').format(number).toString()}`;
 
-const DonutCharts = ({ title }) => {
+const TopSources = ({ title }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -84,6 +90,29 @@ const DonutCharts = ({ title }) => {
     },
   ];
 
+  const topSources = [
+    {
+      source: 'google',
+      count: 50,
+      percent: 25,
+    },
+    {
+      source: 'instagram',
+      count: 68,
+      percent: 34,
+    },
+    {
+      source: 'facebook',
+      count: 40,
+      percent: 20,
+    },
+    {
+      source: 'linkedin',
+      count: 41,
+      percent: 21,
+    },
+  ];
+
   const locationsWithCodes = topLocations.map((location) => {
     const countryCode = countryLookup.byCountry(location.country)?.iso2;
     return {
@@ -107,11 +136,27 @@ const DonutCharts = ({ title }) => {
       <div className={`grid ${isMobile ? 'grid-cols-1' : 'grid-cols-2'} gap-6`}>
         <div>
           <div className='mt-5 space-y-3'>
-            {locationsWithCodes.map((location, index) => (
+            {topSources.map((source, index) => (
               <div key={index} className='flex items-center space-x-2'>
-                <FlagIcon code={location.code} size={20} />
-                <span>{location.country}</span>
-                <span>{valueFormatter(location.percent)}%</span>
+                {/* <FlagIcon code={location.code} size={20} /> */}
+
+                {source.source === 'facebook' ? (
+                  <FaFacebook className='h-5 w-5 text-blue-600' />
+                ) : source.source === 'twitter' ? (
+                  <FaTwitter className='h-5 w-5 text-blue-400' />
+                ) : source.source === 'instagram' ? (
+                  <FaInstagram className='h-5 w-5 text-pink-500' />
+                ) : source.source === 'linkedin' ? (
+                  <FaLinkedin className='h-5 w-5 text-blue-600' />
+                ) : source.source === 'google' ? (
+                  <FaGoogle className='h-5 w-5 text-red-600' />
+                ) : null}
+                <span>
+                  {source.source.charAt(0).toUpperCase() +
+                    source.source.slice(1)}
+                </span>
+
+                <span>{valueFormatter(source.percent)}%</span>
                 <span className='inline-flex items-center gap-x-1.5 rounded-full px-2 py-1 '>
                   <svg
                     className='h-2 w-2'
@@ -128,9 +173,9 @@ const DonutCharts = ({ title }) => {
         </div>
         <div className='mt-6'>
           <DonutChart
-            data={topLocations}
+            data={topSources}
             category='percent'
-            index='country'
+            index='source'
             showLabel={false}
             valueFormatter={valueFormatter}
             colors={['slate', 'violet', 'indigo', 'rose', 'cyan', 'amber']}
@@ -141,4 +186,4 @@ const DonutCharts = ({ title }) => {
   );
 };
 
-export default DonutCharts;
+export default TopSources;
