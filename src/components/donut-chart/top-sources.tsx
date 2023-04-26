@@ -39,7 +39,7 @@ const cities = [
 const valueFormatter = (number: number) =>
   `$ ${Intl.NumberFormat('us').format(number).toString()}`;
 
-const TopSources = ({ title }) => {
+const TopSources = ({ title }: { title: any }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -121,7 +121,7 @@ const TopSources = ({ title }) => {
     };
   });
 
-  const valueFormatter = (value) => `${value}`;
+  const valueFormatter = (value: number) => `${value}`;
   const colors = [
     '#6B7280',
     '#8B5CF6',
