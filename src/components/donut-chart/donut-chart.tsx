@@ -1,7 +1,7 @@
 import { Card, DonutChart, Title } from '@tremor/react';
 import countryLookup from 'country-code-lookup';
 import { useEffect, useState } from 'react';
-import { FlagIcon } from 'react-flag-kit';
+import { FlagIcon, FlagIconCode } from 'react-flag-kit';
 
 const cities = [
   {
@@ -109,7 +109,9 @@ const DonutCharts = ({ title }: { title: any }) => {
           <div className='mt-8 space-y-4'>
             {locationsWithCodes.map((location, index) => (
               <div key={index} className='flex items-center space-x-3 text-sm'>
-                <FlagIcon code={location.code} size={20} />
+                {location.code && (
+                  <FlagIcon code={location.code as FlagIconCode} size={20} />
+                )}
                 <span>{location.country}</span>
                 <span className='font-semibold'>
                   {valueFormatter(location.percent)}%

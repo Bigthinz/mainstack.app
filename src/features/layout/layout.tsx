@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-
 import { Dialog, Transition } from '@headlessui/react';
 import {
   Bars3CenterLeftIcon,
@@ -8,6 +7,7 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
+import React from 'react';
 import { ReactNode } from 'react';
 import { Fragment, useState } from 'react';
 
@@ -38,7 +38,7 @@ import {
   // UserGroupIcon,
   UsersIcon,
 } from '@heroicons/react/24/outline';
-import React, { ForwardRefExoticComponent, SVGProps } from 'react';
+import React from 'react';
 
 import NavList from '@/components/nav-list/nav-list';
 import {
@@ -48,7 +48,7 @@ import {
   NavMain,
 } from '@/components/side-nav/side-nav-styles';
 import TopNav from '@/components/top-nav/top-nav';
-type IconType = ForwardRefExoticComponent<SVGProps<SVGSVGElement>>;
+type IconType = React.ComponentType<React.SVGProps<SVGSVGElement>>;
 
 interface NavItem {
   name: string;
