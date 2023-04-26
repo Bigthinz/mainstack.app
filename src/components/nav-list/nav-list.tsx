@@ -32,7 +32,7 @@ const NavList: React.FC<NavListProps> = ({
 
   return (
     <Nav>
-      <p className='title '>{title}</p>
+      {title && <p className='title '>{title}</p>}
       {navigation.map((item) => (
         <Link href={item.href} key={item.name}>
           <NavLink

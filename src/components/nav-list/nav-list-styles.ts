@@ -2,13 +2,13 @@ import tw, { styled } from 'twin.macro';
 
 export const Nav = styled.nav`
   ${tw`
- mt-3 flex-1 space-y-1  px-2
+ mt-3 mb-5  space-y-1  px-2
 
 `}
 
   .title {
     ${tw`
-    mb-6 px-2  text-sm font-medium text-gray-900
+    mb-3 px-2  text-sm font-medium text-gray-900
 
 `}
   }

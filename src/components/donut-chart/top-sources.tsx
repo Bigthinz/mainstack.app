@@ -135,9 +135,9 @@ const TopSources = ({ title }) => {
       <Title>{title}</Title>
       <div className={`grid ${isMobile ? 'grid-cols-1' : 'grid-cols-2'} gap-6`}>
         <div>
-          <div className='mt-5 space-y-3'>
+          <div className='mt-8 space-y-4'>
             {topSources.map((source, index) => (
-              <div key={index} className='flex items-center space-x-2'>
+              <div key={index} className='flex items-center space-x-3 text-sm'>
                 {/* <FlagIcon code={location.code} size={20} /> */}
 
                 {source.source === 'facebook' ? (
@@ -156,7 +156,9 @@ const TopSources = ({ title }) => {
                     source.source.slice(1)}
                 </span>
 
-                <span>{valueFormatter(source.percent)}%</span>
+                <span className='font-semibold'>
+                  {valueFormatter(source.percent)}%
+                </span>
                 <span className='inline-flex items-center gap-x-1.5 rounded-full px-2 py-1 '>
                   <svg
                     className='h-2 w-2'

@@ -84,10 +84,21 @@ const navigations: NavItem[] = [
   },
 ];
 
-const navigation2: NavItem[] = [
-  { name: 'Dashboard', icon: PaperAirplaneIcon, href: '#', current: true },
+const other1: NavItem[] = [
+  { name: 'other 4', icon: PaperAirplaneIcon, href: '#', current: true },
   {
-    name: 'item 1',
+    name: 'item 5',
+    icon: EnvelopeOpenIcon,
+    href: '#',
+    count: 3,
+    current: false,
+  },
+];
+
+const other2: NavItem[] = [
+  { name: 'item 6', icon: PaperAirplaneIcon, href: '#', current: true },
+  {
+    name: 'item 7',
     icon: EnvelopeOpenIcon,
     href: '#',
     count: 3,
@@ -95,17 +106,10 @@ const navigation2: NavItem[] = [
   },
 
   {
-    name: 'item 2',
+    name: 'item 8',
     icon: UsersIcon,
     href: '#',
     count: 5,
-    current: false,
-  },
-  {
-    name: 'item 3',
-    icon: UserGroupIcon,
-    href: '#',
-    count: 4,
     current: false,
   },
 ];
@@ -232,7 +236,8 @@ const Lay: React.FC<{ children: ReactNode }> = ({ children }) => {
                         </HeadLink>
                       </NavHeader>
                       <NavList navigation={navigations} title='Apps' />
-                      <NavList navigation={navigation2} title='others' />
+                      <NavList navigation={other1} title='other 1' />
+                      <NavList navigation={other2} title='other 2' />
                     </NavMain>
                     <NavFooter>
                       <NavList navigation={others} title='Other' />
@@ -291,8 +296,9 @@ const Lay: React.FC<{ children: ReactNode }> = ({ children }) => {
                 </div>
               </HeadLink>
             </NavHeader>
-            <NavList navigation={navigations} title='Apps' />
-            <NavList navigation={navigation2} title='others' />
+            <NavList navigation={navigations} />
+            <NavList navigation={other1} title='other 1' />
+            <NavList navigation={other2} title='other 2' />
           </NavMain>
           <NavFooter>
             <NavList navigation={others} title='Other' />
