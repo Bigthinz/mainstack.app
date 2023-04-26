@@ -33,9 +33,9 @@ import { AreaChart, Card, Title } from '@tremor/react';
 //   },
 // ];
 
-const AreaCharts = ({ graphDatas }) => {
-  console.log(graphDatas);
-  const graphData = {
+const AreaCharts = ({ graphDatas }: { graphDatas: any }) => {
+  // console.log(graphDatas);
+  const graphData: any = {
     views: {
       '2022-07-31': 1,
       '2022-08-01': 3,
