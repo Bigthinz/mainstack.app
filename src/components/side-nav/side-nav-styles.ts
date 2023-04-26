@@ -9,14 +9,14 @@ export const Container = styled.div`
 
 export const NavMain = styled.div`
   ${tw`
- flex flex-1 flex-col overflow-y-auto pt-5 pb-4
+ flex flex-1 flex-col overflow-y-auto pt-5 pb-4 
 
 `}
 `;
 
 export const NavHeader = styled.div`
   ${tw`
-flex flex-shrink-0 border-b border-[#595959] p-4
+flex flex-shrink-0  px-4
 
 `}
 `;

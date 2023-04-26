@@ -39,9 +39,9 @@ const NavList: React.FC<NavListProps> = ({
             // href={item.href}
             className={`${
               router.asPath.includes(item.href)
-                ? 'bg-[#595959] text-white  '
-                : '  text-[#f1f1f1d6]'
-            } flex items-center space-y-1  rounded-md px-2 py-2 text-sm  hover:bg-[#595959] hover:text-white `}
+                ? ' text-gray-900  '
+                : '  text-gray-900'
+            } flex items-center space-y-1  rounded-md px-2 py-2 text-sm  hover:text-gray-900 `}
           >
             <item.icon
               className={`

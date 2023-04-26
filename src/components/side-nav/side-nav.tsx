@@ -19,7 +19,6 @@ import {
   NavFooter,
   NavHeader,
   NavMain,
-  TextWrapper,
 } from './side-nav-styles';
 import NavList from '../nav-list/nav-list';
 type IconType = ForwardRefExoticComponent<SVGProps<SVGSVGElement>>;
@@ -110,29 +109,17 @@ const SideNav: React.FC = () => {
         <NavHeader>
           <HeadLink href='#'>
             <div className='head-wrap'>
-              <div>
-                <svg
-                  width='49'
-                  height='49'
-                  viewBox='0 0 49 49'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <rect width='49' height='49' rx='12' fill='#F5F5F5' />
-                  <path
-                    d='M28.325 30.875H22.125L21.525 33H17.25L23.175 15.5H27.25L33.2 33H28.925L28.325 30.875ZM27.425 27.7L25.225 19.925L23.025 27.7H27.425Z'
-                    fill='#FC7B2C'
-                  />
-                </svg>
-              </div>
-              <TextWrapper>
+              <div></div>
+              {/* <TextWrapper>
                 <p className='text-xs'>Obsidian achernar</p>
                 <p className='text-sm'>Hr Comms</p>
-              </TextWrapper>
+              </TextWrapper> */}
             </div>
           </HeadLink>
         </NavHeader>
+        jhgfhfhfh
         <NavList navigation={navigations} title='Apps' />
+        <NavList navigation={navigations} title='others' />
       </NavMain>
       <NavFooter>
         <NavList navigation={others} title='Other' />

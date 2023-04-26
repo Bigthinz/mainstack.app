@@ -2,6 +2,7 @@ import React from 'react';
 
 import AreaCharts from '@/components/area-chart/area-chart';
 import DonutCharts from '@/components/donut-chart/donut-chart';
+import Tab from '@/components/tab/tab';
 
 const Dashboard = () => {
   return (
@@ -11,8 +12,8 @@ const Dashboard = () => {
         <p className='text-gray-600'>Checkout the dashboard summary</p>
       </div>
 
-      <div>
-        <div></div>
+      <div className='my-5'>
+        <Tab />
       </div>
 
       <AreaCharts />
