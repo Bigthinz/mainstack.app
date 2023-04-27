@@ -33,6 +33,7 @@
     "axios": "1.2.2",
     "classnames": "^2.3.2",
     "clsx": "^1.2.1",
+    "country-code-lookup": "^0.0.23",
     "csv-parse": "^5.3.6",
     "date-fns": "^2.29.3",
     "filepond": "^4.30.4",
@@ -50,6 +51,7 @@
     "react-quill": "^2.0.0",
     "react-redux": "^8.0.5",
     "react-select": "^5.7.0",
+    "styled-components": "^5.3.10",
     "swr": "^2.1.0",
     "tailwind-merge": "^1.9.1",
     "zod": "^3.20.6"
@@ -69,6 +71,7 @@
     "@types/jest": "^29.4.0",
     "@types/lodash.debounce": "^4.0.7",
     "@types/react": "^18.0.28",
+    "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",
     "autoprefixer": "^10.4.13",
