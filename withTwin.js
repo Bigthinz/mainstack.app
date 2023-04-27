@@ -6,7 +6,11 @@ const includedDirs = [path.resolve(__dirname, 'src')];
 module.exports = function withTwin(nextConfig) {
   return {
     ...nextConfig,
+
     webpack(config, options) {
+      // config = {
+      //   disableShortCss: true,
+      // };
       const { dev, isServer } = options;
       config.module = config.module || {};
       config.module.rules = config.module.rules || [];

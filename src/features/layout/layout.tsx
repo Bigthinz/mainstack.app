@@ -38,7 +38,6 @@ import {
   // UserGroupIcon,
   UsersIcon,
 } from '@heroicons/react/24/outline';
-import React from 'react';
 
 import NavList from '@/components/nav-list/nav-list';
 import {
@@ -48,11 +47,12 @@ import {
   NavMain,
 } from '@/components/side-nav/side-nav-styles';
 import TopNav from '@/components/top-nav/top-nav';
+
 type IconType = React.ComponentType<React.SVGProps<SVGSVGElement>>;
 
 interface NavItem {
   name: string;
-  icon: IconType;
+  icon: any;
   href: string;
   current: boolean;
   count?: number;
@@ -62,7 +62,7 @@ const navigations: NavItem[] = [
   { name: 'Dashboard', icon: PaperAirplaneIcon, href: '#', current: true },
   {
     name: 'item 1',
-    icon: EnvelopeOpenIcon,
+    icon: PaperAirplaneIcon,
     href: '#',
     count: 3,
     current: false,
@@ -296,7 +296,7 @@ const Lay: React.FC<{ children: ReactNode }> = ({ children }) => {
                 </div>
               </HeadLink>
             </NavHeader>
-            <NavList navigation={navigations} />
+            <NavList navigation={navigations} title='' />
             <NavList navigation={other1} title='other 1' />
             <NavList navigation={other2} title='other 2' />
           </NavMain>
