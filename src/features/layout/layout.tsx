@@ -40,12 +40,6 @@ import {
 } from '@heroicons/react/24/outline';
 
 import NavList from '@/components/nav-list/nav-list';
-import {
-  HeadLink,
-  NavFooter,
-  NavHeader,
-  NavMain,
-} from '@/components/side-nav/side-nav-styles';
 import TopNav from '@/components/top-nav/top-nav';
 
 type IconType = React.ComponentType<React.SVGProps<SVGSVGElement>>;
@@ -123,8 +117,8 @@ const others: NavItem[] = [
     current: false,
   },
 ];
-import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
@@ -195,9 +189,12 @@ const Lay: React.FC<{ children: ReactNode }> = ({ children }) => {
 
                   <div className=' border-r bg-white lg:inset-y-0 lg:flex lg:w-[250px] lg:flex-col'>
                     {/* Sidebar component, swap this element with another sidebar if you like */}
-                    <div className=' flex flex-1 flex-col overflow-y-auto pt-5 pb-4 '>
+                    <div className=' flex flex-1 flex-col overflow-y-auto pb-4 pt-5 '>
                       <div className='flex flex-shrink-0  px-4'>
-                        <Link className='block w-full flex-shrink-0 pb-4' href='#'>
+                        <Link
+                          className='block w-full flex-shrink-0 pb-4'
+                          href='#'
+                        >
                           <div className='flex items-center'>
                             <div>
                               <svg
@@ -240,9 +237,9 @@ const Lay: React.FC<{ children: ReactNode }> = ({ children }) => {
                       <NavList navigation={other1} title='other 1' />
                       <NavList navigation={other2} title='other 2' />
                     </div>
-                    <NavFooter>
+                    <div className='mb-3 flex  flex-shrink-0'>
                       <NavList navigation={others} title='Other' />
-                    </NavFooter>
+                    </div>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
@@ -256,7 +253,7 @@ const Lay: React.FC<{ children: ReactNode }> = ({ children }) => {
         {/* Static sidebar for desktop */}
         <div className='hidden border-r bg-[##fefefe] lg:fixed lg:inset-y-0 lg:flex lg:w-[250px] lg:flex-col'>
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className='flex flex-1 flex-col overflow-y-auto pt-5 pb-4 '>
+          <div className='flex flex-1 flex-col overflow-y-auto pb-4 pt-5 '>
             <div className='flex flex-shrink-0  px-4'>
               <Link className='block w-full flex-shrink-0 pb-4' href='#'>
                 <div className=''>
@@ -300,8 +297,8 @@ const Lay: React.FC<{ children: ReactNode }> = ({ children }) => {
             <NavList navigation={navigations} title='' />
             <NavList navigation={other1} title='other 1' />
             <NavList navigation={other2} title='other 2' />
-          </d>
-          <div className='flex flex-shrink-0  mb-3'>
+          </div>
+          <div className='mb-3 flex  flex-shrink-0'>
             <NavList navigation={others} title='Other' />
           </div>
         </div>
